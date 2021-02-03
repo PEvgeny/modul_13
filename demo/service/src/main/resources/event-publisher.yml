@@ -1,0 +1,36 @@
+asyncapi: 2.0.0
+info:
+  title: Template application
+  version: '1.01.01'
+channels:
+  event-hello:
+    publish:
+      message:
+        $ref: '#/components/messages/helloMessage' 
+components:
+  messages:
+    helloMessage:
+      payload:
+        $ref: '#/components/schemas/user'        
+  schemas:
+    user:
+      type: object   
+      properties:
+        name:
+          type: string        
+        age:
+          type: integer
+          format: int32
+          minimum: 0
+        address:
+          type: array
+          items:  
+            $ref: '#/components/schemas/address'  
+    address:
+      type: object   
+      properties:
+        value:
+          type: string
+        zipcode:
+          type: string 
+          
