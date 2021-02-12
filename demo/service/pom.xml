@@ -59,13 +59,13 @@
                             <goal>qarcher</goal>
                         </goals>
                         <configuration>
-                            <skip>true</skip>
-                            <serviceName>QArcherDemo</serviceName>
-                            <qarcherService>http://dsagregator2:8030</qarcherService>
+                            <skip>false</skip>
+                            <serviceName>SmsVerification</serviceName>
+                            <!--qarcherService>http://dsagregator2:8030</qarcherService-->
                             <targetPackage>ru.diasoft.micro</targetPackage>
-                            <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
+                            <qarcherModuleName>DQ Hackathon Tutorial</qarcherModuleName>
                             <!--    -->
-                            <qarcherVersion>1.01.01</qarcherVersion>
+                            <qarcherVersion>1.01.00</qarcherVersion>
                             <!--    -->
                             <restModuleSplit>true</restModuleSplit>
                             <useZonedDateTime>true</useZonedDateTime>

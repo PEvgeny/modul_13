@@ -7,6 +7,35 @@
     <property name="autoIncrement" value="false" dbms="postgresql,mssql,oracle"/>
     <property name="autoIncrement" value="true" dbms="h2"/>
 
-	<!-- Put your changesets here -->
+    <!-- Put your changesets here -->
+    <changeSet id="1.0.1-CREATE-Verification-TABLE" author="epolupanov">
+        <preConditions onFail="MARK_RAN">
+            <not> <tableExists tableName="sms_verification"/> </not>
+        </preConditions>
+        <createSequence sequenceName="sms_verification_verificationid_seq" incrementBy="1" startValue="1" />
+
+        <createTable tableName="sms_verification">
+            <column name="verificationid" type="NUMERIC(19)" autoIncrement="${autoIncrement}" defaultValueSequenceNext="sms_verification_verificationid_seq">
+                <constraints nullable="false"/>
+            </column>
+            <column name="processguid" type="VARCHAR(50)" autoIncrement="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phonenumber" type="VARCHAR(50)" autoIncrement="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secretcode" type="VARCHAR(50)" autoIncrement="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)" autoIncrement="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="sms_verification" columnNames="processguid" constraintName="k01_sms_verification"/>
+        <createIndex tableName = "sms_verification" indexName = "k02_sms_verification" unique="false">
+            <column name = "secretcode"></column>
+            <column name = "status"></column>
+        </createIndex>
+    </changeSet>
 		
 </databaseChangeLog>
