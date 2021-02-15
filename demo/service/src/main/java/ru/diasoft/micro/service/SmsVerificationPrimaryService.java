@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ru.diasoft.micro.domain.*;
+import ru.diasoft.micro.model.SmsVerificationMessage;
 import ru.diasoft.micro.repository.SmsVerificationRepository;
+import ru.diasoft.micro.smsverificationcreated.publish.SmsVerificationCreatedPublishGateway;
 
 import java.util.Optional;
 import java.util.Random;
@@ -40,7 +42,6 @@ public class SmsVerificationPrimaryService implements SmsVerificationService {
             .build();
 
         repository.save(smsVerification);
-
         return new SmsVerificationPostResponse(guid);
     }
 }

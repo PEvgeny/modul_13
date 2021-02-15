@@ -3,34 +3,18 @@ info:
   title: Template application
   version: '1.01.01'
 channels:
-  event-hello:
+  sms-verification-delivered:
     subscribe:
       message:
-        $ref: '#/components/messages/helloMessage' 
+        $ref: '#/components/messages/smsDeliveredMessage'
 components:
   messages:
-    helloMessage:
+    smsDeliveredMessage:
       payload:
-        $ref: '#/components/schemas/user'        
+        $ref: '#/components/schemas/smsDeliveredMessage'
   schemas:
-    user:
-      type: object   
+    smsDeliveredMessage:
+      type: object
       properties:
-        name:
-          type: string        
-        age:
-          type: integer
-          format: int32
-          minimum: 0
-        address:
-          type: array
-          items:  
-            $ref: '#/components/schemas/address'  
-    address:
-      type: object   
-      properties:
-        value:
+        guid:
           type: string
-        zipcode:
-          type: string 
-          

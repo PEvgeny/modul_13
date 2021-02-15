@@ -49,20 +49,20 @@ spring:
   liquibase:
     change-log: classpath*:liquibase-extracted/rootChangeLog.xml
 # Generate Events Publisher or Subsriber   
-  kafka:
-    bootstrap-servers: localhost:9094   
-  cloud:
-    stream:
-      binders:
-        binderName:
-          type: kafka
-      bindings:
-        eventHelloPublish:
-          destination: event-hello
-        eventHelloSubscribe:
-          destination: event-hello  
-  messages:
-    basename: i18n.messages
+#  kafka:
+#    bootstrap-servers: localhost:9094
+#  cloud:
+#    stream:
+#      binders:
+#        binderName:
+#          type: kafka
+#      bindings:
+#        eventHelloPublish:
+#          destination: event-hello
+#        eventHelloSubscribe:
+#          destination: event-hello
+#  messages:
+#    basename: i18n.messages
 
 dstrace:
   enabled: false
@@ -79,6 +79,6 @@ logging:
     root: INFO
     ru.diasoft.micro: DEBUG
     org.hibernate.type: INFO
-    kafka: INFO
-    org.apache.kafka.clients: INFO
-    org.springframework.kafka.listener: INFO
+#    kafka: INFO
+#    org.apache.kafka.clients: INFO
+#    org.springframework.kafka.listener: INFO

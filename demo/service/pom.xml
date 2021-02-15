@@ -78,18 +78,38 @@
                         <id>Generate Events</id>
                         <!-- DQCodeGen+Event-Driven Architectures (EDA). conf.diasoft.ru/pages/viewpage.action?pageId=50894482 -->
                         <goals>
-                            <goal>qarcher</goal>
+                            <goal>local</goal>
                         </goals>
                         <configuration>
-                            <skip>true</skip>
-                            <serviceName>QArcherDemo</serviceName>
-                            <qarcherService>http://dsagregator2:8050</qarcherService>
+                            <skip>false</skip>
+                            <!--<serviceName>QArcherDemo</serviceName>
+                            <qarcherService>http://dsagregator2:8050</qarcherService>-->
                             <targetPackage>ru.diasoft.micro</targetPackage>
-                            <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
-                            <!--    -->
+                            <!--qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName-->
+
                             <qarcherVersion>1.01.01</qarcherVersion>
                             <!--    -->
-                            <asyncApi>true</asyncApi>
+                            <asyncApiFile>${project.basedir}/src/main/resources/event-publisher.yml</asyncApiFile>
+                            <useZonedDateTime>true</useZonedDateTime>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>Generate Events Subsciber</id>
+                        <!-- DQCodeGen+Event-Driven Architectures (EDA). conf.diasoft.ru/pages/viewpage.action?pageId=50894482 -->
+                        <goals>
+                            <goal>local</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <!--<serviceName>QArcherDemo</serviceName>-->
+                            <!--<qarcherService>http://dsagregator2:8050</qarcherService>-->
+                            <targetPackage>ru.diasoft.micro</targetPackage>
+                            <!--<qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>-->
+                            <!--    -->
+                            <!--<qarcherVersion>1.01.01</qarcherVersion>-->
+                            <!--    -->
+                            <!--<asyncApi>true</asyncApi>-->
+                            <asyncApiFile>${project.basedir}/src/main/resources/event-subscriber.yml</asyncApiFile>
                             <useZonedDateTime>true</useZonedDateTime>
                         </configuration>
                     </execution>

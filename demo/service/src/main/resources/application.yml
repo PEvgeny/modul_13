@@ -46,22 +46,22 @@ spring:
           lob:
             non_contextual_creation: true
 # Generate Events Publisher or Subsriber    
-  kafka:
-    bootstrap-servers: ${KAFKA_URL}  
-  cloud:      
-    stream:
-      function:
-        definition: InMemorySwaggerResourcesProviderStub
-      binders:
-        binderName:
-          type: kafka
-      bindings:
-        eventHelloPublish:
-          destination: event-hello
-        eventHelloSubscribe:
-          destination: event-hello 
-  messages:
-    basename: i18n.messages
+#  kafka:
+#    bootstrap-servers: ${KAFKA_URL}
+#  cloud:
+#    stream:
+#      function:
+#        definition: InMemorySwaggerResourcesProviderStub
+#      binders:
+#        binderName:
+#          type: kafka
+#      bindings:
+#        eventHelloPublish:
+#          destination: event-hello
+#        eventHelloSubscribe:
+#          destination: event-hello
+#  messages:
+#    basename: i18n.messages
         
 dstrace:
   enabled: ${TRACER_ENABLE:true}
@@ -82,9 +82,9 @@ logging:
     root: ${LOGGING_ROOT_LEVEL:INFO}
     ru.diasoft.micro: ${LOGGING_LEVEL:DEBUG}
     org.hibernate.type: ${LOGGING_HIBERNATE_LEVEL:INFO} #To log values set TRACE
-    kafka: ${LOGGING_KAFKA_LEVEL:INFO}
-    org.apache.kafka.clients: ${LOGGING_KAFKA_LEVEL:INFO}
-    org.springframework.kafka.listener: ${LOGGING_KAFKA_LEVEL:INFO}
+#    kafka: ${LOGGING_KAFKA_LEVEL:INFO}
+#    org.apache.kafka.clients: ${LOGGING_KAFKA_LEVEL:INFO}
+#    org.springframework.kafka.listener: ${LOGGING_KAFKA_LEVEL:INFO}
 
 chaos:
   monkey:
@@ -118,3 +118,10 @@ management:
     export:
       atlas:
         enabled: false
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/
+  instance:
+    preferIpAddress: true

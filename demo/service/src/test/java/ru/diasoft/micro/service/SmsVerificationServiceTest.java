@@ -11,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.diasoft.micro.domain.*;
 import ru.diasoft.micro.repository.SmsVerificationRepository;
+import ru.diasoft.micro.smsverificationcreated.publish.SmsVerificationCreatedPublishGateway;
 
 import java.util.Optional;
 import java.util.UUID;
