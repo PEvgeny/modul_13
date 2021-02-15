@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eurekaa: false
+    instance:
+      preferIpAddress: true
+    fetch-registry: false
+    healthcheck:
+      enabled: false
+
+  instance:
+    appname: api-gateway
+    preferIpAddress: true
+
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+      routes:
+        - id: demo
+          uri: http://localhost:7081/
+          predicates:
+            - Path=/demo/**
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
